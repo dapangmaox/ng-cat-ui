@@ -116,7 +116,7 @@
       "projectType": "library",
       "root": "cat-ui",
       "sourceRoot": "cat-ui/src",
-      "prefix": "lib",
+      "prefix": "cat",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

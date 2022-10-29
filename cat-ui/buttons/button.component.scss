@@ -1,4 +1,10 @@
 .cat-button {
-    margin: 0;
     cursor: pointer;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
 }

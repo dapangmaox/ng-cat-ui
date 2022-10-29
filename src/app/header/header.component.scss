@@ -1,0 +1,24 @@
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #3F51B5;
+    padding: 8px 16px;
+    top: 0;
+
+    a {
+        line-height: 40px;
+
+        span {
+            color: #fff;
+            vertical-align: middle;
+            margin-left: 10px;
+            line-height: 26px;
+        }
+    }
+
+    .logo {
+        height: 26px;
+        vertical-align: middle;
+    }
+}
+

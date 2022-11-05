@@ -1,0 +1,15 @@
+ul {
+    list-style: none;
+    
+    li {
+        line-height: 48px;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #424242;
+
+        &:hover {
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+    }
+}

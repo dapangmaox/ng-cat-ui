@@ -1,3 +1,4 @@
+@import '../style/reset';
 @import '../style/theme/color';
 
 :host {
@@ -14,6 +15,19 @@ $catui-btn-normal-config: (
     color: $catui-on-primary,
     background-color: $catui-primary,
     border-color: transparent
+  ),
+  tonal: (
+    color: $catui-on-secondary-container,
+    background-color: $catui-secondary-container,
+    border-color: transparent
+  ),
+  outlined: (
+    color: $catui-primary,
+    background-color: $catui-surface,
+    border: 1px solid $catui-outline
+  ),
+  text: (
+    color: $catui-primary
   )
 );
 
@@ -40,20 +54,72 @@ $catui-btn-preudo-config: (
   filled: (
     hover: (
       color: $catui-on-primary,
-      background-color: rgba($catui-on-primary, 0.08)
+      background-color: $catui-primary
     ),
     focus: (
       color: $catui-on-primary,
-      background-color: rgba($catui-on-primary, 0.12)
+      background-color: $catui-primary
     ),
     active: (
       color: $catui-on-primary,
-      background-color: rgba($catui-on-primary, 0.12)
+      background-color: $catui-primary
     ),
     disabled: (
       color: $catui-on-surface,
       opacity: 0.38,
       background-color: rgba($catui-on-surface, 0.12)
+    )
+  ),
+  tonal: (
+    hover: (
+      color: $catui-on-secondary-container,
+      background-color: rgba($catui-on-secondary-container, 0.08)
+    ),
+    disabled: (
+      color: $catui-on-surface,
+      opacity: 0.38,
+      background-color: rgba($catui-on-surface, 0.12)
+    )
+  ),
+  outlined: (
+    hover: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.08),
+      border: 1px solid $catui-outline
+    ),
+    focus: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.12),
+      border: 1px solid $catui-outline
+    ),
+    active: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.12),
+      border: 1px solid $catui-outline
+    ),
+    disabled: (
+      color: $catui-on-surface,
+      opacity: 0.38,
+      background-color: rgba($catui-on-surface, 0.12)
+    )
+  ),
+  text: (
+    hover: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.08)
+    ),
+    focus: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.12)
+    ),
+    active: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.12)
+    ),
+    disabled: (
+      color: $catui-on-surface,
+      opacity: 0.38,
+      background-color: transparent
     )
   )
 );
@@ -68,7 +134,7 @@ $catui-btn-preudo-config: (
   min-width: 64px;
   line-height: 20px;
   cursor: pointer;
-  @each $type in elevated, filled {
+  @each $type in elevated, filled, tonal, outlined, text {
     &.catui-btn-#{$type} {
       @each $key, $value in map-get($map: $catui-btn-normal-config, $key: $type) {
         #{$key}: $value;
@@ -76,7 +142,7 @@ $catui-btn-preudo-config: (
     }
   }
 
-  @each $type in elevated, filled {
+  @each $type in elevated, filled, tonal, outlined, text {
     &.catui-btn-#{$type} {
       @each $pseudo, $value in map-get($catui-btn-preudo-config, $type) {
         &:#{$pseudo} {

@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-export type IButtonType = 'button' | 'submit' | 'reset';
-export type IButtonStyle = 'filled' | 'elevated';
+export type ButtonType = 'elevated' | 'filled' | 'tonal' | 'outlined' | 'text';
 
 @Component({
   selector: 'cat-button',
@@ -10,8 +9,7 @@ export type IButtonStyle = 'filled' | 'elevated';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
-  @Input() type: IButtonType = 'button';
-  @Input() bsStyle: IButtonStyle = 'filled';
+  @Input() type: ButtonType = 'elevated';
   @Input() disabled: boolean = false;
 
   constructor() {}

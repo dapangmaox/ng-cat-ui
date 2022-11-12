@@ -1,10 +1,90 @@
-.cat-button {
-    cursor: pointer;
-    border: none;
-    display: inline-block;
-    text-align: center;
-    min-width: 64px;
-    line-height: 36px;
-    padding: 0 16px;
-    border-radius: 4px;
+@import '../style/theme/color';
+
+:host {
+  display: inline-block;
+}
+
+$catui-btn-normal-config: (
+  elevated: (
+    color: $catui-primary,
+    background-color: $catui-surface,
+    border-color: transparent
+  ),
+  filled: (
+    color: $catui-on-primary,
+    background-color: $catui-primary,
+    border-color: transparent
+  )
+);
+
+$catui-btn-preudo-config: (
+  elevated: (
+    hover: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.08)
+    ),
+    focus: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.12)
+    ),
+    active: (
+      color: $catui-primary,
+      background-color: rgba($catui-primary, 0.12)
+    ),
+    disabled: (
+      color: $catui-on-surface,
+      opacity: 0.38,
+      background-color: rgba($catui-on-surface, 0.12)
+    )
+  ),
+  filled: (
+    hover: (
+      color: $catui-on-primary,
+      background-color: rgba($catui-on-primary, 0.08)
+    ),
+    focus: (
+      color: $catui-on-primary,
+      background-color: rgba($catui-on-primary, 0.12)
+    ),
+    active: (
+      color: $catui-on-primary,
+      background-color: rgba($catui-on-primary, 0.12)
+    ),
+    disabled: (
+      color: $catui-on-surface,
+      opacity: 0.38,
+      background-color: rgba($catui-on-surface, 0.12)
+    )
+  )
+);
+
+.catui-btn {
+  height: 40px;
+  padding: 0 24px;
+  font-size: 14px;
+  font-family: 'Roboto';
+  border-radius: 100px;
+  font-weight: 500;
+  min-width: 64px;
+  line-height: 20px;
+  cursor: pointer;
+  @each $type in elevated, filled {
+    &.catui-btn-#{$type} {
+      @each $key, $value in map-get($map: $catui-btn-normal-config, $key: $type) {
+        #{$key}: $value;
+      }
+    }
+  }
+
+  @each $type in elevated, filled {
+    &.catui-btn-#{$type} {
+      @each $pseudo, $value in map-get($catui-btn-preudo-config, $type) {
+        &:#{$pseudo} {
+          @each $key, $value2 in map-get(map-get($catui-btn-preudo-config, $type), $pseudo) {
+            #{$key}: $value2;
+          }
+        }
+      }
+    }
+  }
 }

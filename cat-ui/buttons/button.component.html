@@ -1,3 +1,5 @@
-<button class="cat-button" [type]="type" [disabled]="disabled" [class.bordered]>
-  <ng-content></ng-content>
+<button class="catui-btn catui-btn-{{ bsStyle }}" [disabled]="disabled">
+  <span class="button-content">
+    <ng-content></ng-content>
+  </span>
 </button>

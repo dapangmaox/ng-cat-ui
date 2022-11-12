@@ -1,8 +1,15 @@
-<p>buttons works!</p>
+<h1>Button 按钮</h1>
 
-<cat-button>Basic</cat-button>
-<cat-button>Primary</cat-button>
-<cat-button>Success</cat-button>
-<cat-button>Warning</cat-button>
-<cat-button>Danger</cat-button>
-<cat-button>Disabled</cat-button>
+<h3>Elevated Buttons</h3>
+
+<cat-button style="margin-right: 8px" bsStyle="elevated"> Elevated </cat-button>
+<cat-button [disabled]="true" style="margin-right: 8px" bsStyle="elevated">
+  Disabled
+</cat-button>
+
+<h3>Filled Buttons</h3>
+
+<cat-button style="margin-right: 8px" bsStyle="filled"> Filled </cat-button>
+<cat-button [disabled]="true" style="margin-right: 8px" bsStyle="filled">
+  Disabled
+</cat-button>
